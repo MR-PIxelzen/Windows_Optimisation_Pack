@@ -239,6 +239,9 @@ Start-Process $env:temp\Autoruns64.exe}
 function GitHubDesktop {choco install github-desktop -y
 }
 
+function geforceexperience {
+    choco install geforce-experience
+}
 function git { choco install git
 }
 
@@ -459,6 +462,13 @@ $BOX_git.Location = New-Object Drawing.Point 820,470
 $BOX_git.Text =  "Git"
 $BOX_git.ForeColor='#aaaaaa'
 $BOX_git.Checked = $false 
+$BOX_geforceexperience = New-Object System.Windows.Forms.CheckBox
+$BOX_geforceexperience.Size = New-Object Drawing.Point 135,25
+$BOX_geforceexperience.Location = New-Object Drawing.Point 820,507
+$BOX_geforceexperience.Text =  "Geforce-experience"
+$BOX_geforceexperience.ForeColor='#aaaaaa'
+$BOX_geforceexperience.Checked = $false
+
 
 <#$Titel_Compability = New-Object Windows.Forms.Label
 $Titel_Compability.Size = New-Object Drawing.Point 300,25
@@ -506,6 +516,7 @@ $form.Controls.Add($BOX_Fan_Control)
 $form.Controls.Add($BOX_Google_Chrome)
 $form.Controls.Add($BOX_Controller)
 $form.Controls.Add($BOX_git)
+$form.Controls.Add($BOX_geforceexperience)
 $form.Controls.Add($BUTTON_Start)
 $form.Controls.Add($BUTTON_Cancel)
 $form.ShowDialog() | Out-Null }
@@ -524,7 +535,8 @@ IF($hash.WindowsTweaks_Index){WindowsTweaks_Index}
 IF($hash.Scheduled_Maintance){Scheduled_Maintance}
 IF($hash.Runtime){Runtime}  
 IF($hash.Git){Git} 
-IF($hash.GitHubDesktop){GitHubDesktop}   
+IF($hash.GitHubDesktop){GitHubDesktop}
+IF($hash.geforceexperience){geforceexperience}   
 IF($hash.Autoruns){Autoruns}   
 IF($hash.Winrar){Winrar} 
 IF($hash.Fan_Control){Fan_Control}
