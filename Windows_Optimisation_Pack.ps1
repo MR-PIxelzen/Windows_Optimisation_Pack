@@ -509,11 +509,24 @@ $BOX_playnite.Checked = $false
 # Discord
 $BOX_Discord = New-Object System.Windows.Forms.CheckBox
 $BOX_Discord.Size = New-Object Drawing.Point 135,25
-$BOX_Discord.Location = New-Object Drawing.Point 820,381
+$BOX_Discord.Location = New-Object Drawing.Point 820,581
 $BOX_Discord.Text =  "Discord"
 $BOX_Discord.ForeColor='#aaaaaa'
 $BOX_Discord.Checked = $false
-
+# steam
+$BOX_steam = New-Object System.Windows.Forms.CheckBox
+$BOX_steam.Size = New-Object Drawing.Point 135,25
+$BOX_steam.Location = New-Object Drawing.Point 820,619
+$BOX_steam.Text =  "Steam"
+$BOX_steam.ForeColor='#aaaaaa'
+$BOX_steam.Checked = $false
+# epic games launcher
+$BOX_epicgamelauncher = New-Object System.Windows.Forms.CheckBox
+$BOX_epicgamelauncher.Size = New-Object Drawing.Point 135,25
+$BOX_epicgamelauncher.Location = New-Object Drawing.Point 820,656
+$BOX_epicgamelauncher.Text =  "Epic-Games-launcher"
+$BOX_epicgamelauncher.ForeColor='#aaaaaa'
+$BOX_epicgamelauncher.Checked = $false
 
 <#$Titel_Compability = New-Object Windows.Forms.Label
 $Titel_Compability.Size = New-Object Drawing.Point 300,25
@@ -564,6 +577,8 @@ $form.Controls.Add($BOX_git)
 $form.Controls.Add($BOX_geforceexperience)
 $form.Controls.Add($BOX_playnite)
 $form.Controls.Add($BOX_Discord)
+$form.Controls.Add($BOX_steam)
+$form.Controls.Add($BOX_epicgamelauncher)
 $form.Controls.Add($BUTTON_Start)
 $form.Controls.Add($BUTTON_Cancel)
 $form.Controls.Add($verticalScrollBar)
