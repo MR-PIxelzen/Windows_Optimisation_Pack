@@ -239,6 +239,9 @@ Start-Process $env:temp\Autoruns64.exe}
 function GitHubDesktop {choco install github-desktop -y
 }
 
+function git { choco install git
+}
+
 function Google_Chrome{winget install --id=Google.Chrome --exact --accept-source-agreements}
 
 function Winrar{winget install --id=RARLab.WinRAR --exact --accept-source-agreements}
@@ -519,8 +522,9 @@ IF($hash.WindowsTweaks_Registry){WindowsTweaks_Registry}
 IF($hash.WindowsTweaks_Features){WindowsTweaks_Features}
 IF($hash.WindowsTweaks_Index){WindowsTweaks_Index}
 IF($hash.Scheduled_Maintance){Scheduled_Maintance}
-IF($hash.Runtime){Runtime}   
-IF($hash.Autoruns){GitHubDesktop}   
+IF($hash.Runtime){Runtime}  
+IF($hash.Git){Git} 
+IF($hash.GitHubDesktop){GitHubDesktop}   
 IF($hash.Autoruns){Autoruns}   
 IF($hash.Winrar){Winrar} 
 IF($hash.Fan_Control){Fan_Control}
