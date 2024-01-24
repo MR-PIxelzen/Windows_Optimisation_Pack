@@ -4,9 +4,9 @@
 $Branch = "main"
 $Version = "1.9.1"
 
-$Host.UI.RawUI.WindowTitle = "Windows_Optimisation_Pack | $([char]0x00A9) Marvin700"
+$Host.UI.RawUI.WindowTitle = "PiXZeN ? | $([char]0x00A9) Marvin700"
 $hash = [hashtable]::Synchronized(@{})
-$ScriptFolder = "$env:temp\Windows_Optimisation_Pack"
+$ScriptFolder = "$env:temp\PiXZeN"
 $WindowsVersion = (Get-WmiObject -Class Win32_OperatingSystem).Caption
 $BuildNumber = (Get-CimInstance -Class CIM_OperatingSystem).BuildNumber
 #$InstalledSoftware = (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*).DisplayName
@@ -236,6 +236,9 @@ Start-BitsTransfer -Source "https://download.sysinternals.com/files/Autoruns.zip
 Expand-Archive $env:temp\Autoruns.zip  $env:temp
 Start-Process $env:temp\Autoruns64.exe}
 
+function GitHubDesktop {choco install github-desktop -y
+}
+
 function Google_Chrome{winget install --id=Google.Chrome --exact --accept-source-agreements}
 
 function Winrar{winget install --id=RARLab.WinRAR --exact --accept-source-agreements}
@@ -250,7 +253,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Windows_Optimisation_Pack" -Name "Success
 $ToastXml = [Windows.Data.Xml.Dom.XmlDocument]::New()
 $ToastXml.LoadXml($ToastTemplate.OuterXml)
 $ToastMessage = [Windows.UI.Notifications.ToastNotification]::New($ToastXML)
-[Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier("Windows_Optimisation_Pack").Show($ToastMessage)
+[Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier("PiXZeN").Show($ToastMessage)
 exit}
 
 function GUI{
@@ -281,19 +284,26 @@ IF($BOX_Google_Chrome.Checked)          {$hash.Google_Chrome = $true}
 IF($BOX_Controller.Checked)             {$hash.Controller = $true} 
 $Form.Close()}
 $form = New-Object System.Windows.Forms.Form
-$form.Size = New-Object Drawing.Point 710,509
-$form.text = "Windows_Optimisation_Pack | $([char]0x00A9) Marvin700"
+$form.Size = New-Object Drawing.Point 1034,1026
+# WindowTitle
+$form.text = "PiXZeN  ? | $([char]0x00A9) Marvin700"
 $form.StartPosition = "CenterScreen" 
 $form.ForeColor='#aaaaaa'
 $form.BackColor='#212121'
+# Disable Minimize and Maximize buttons
 $form.MinimizeBox = $false
 $form.MaximizeBox = $false
+# Disable the ability to resize
+$form.FormBorderStyle = [System.Windows.Forms.FormBorderStyle]::FixedSingle
 $Image = new-object Windows.Forms.PictureBox
 $img = [System.Drawing.Image]::Fromfile("$ScriptFolder\Picture.png")
 $Image.Width = $img.Size.Width
 $Image.Height = $img.Size.Height
 $Image.Location=New-Object System.Drawing.Point(68,20)
 $Image.Image = $img
+
+
+#sub-Title
 $Titel_Essentials = New-Object Windows.Forms.Label
 $Titel_Essentials.Size = New-Object Drawing.Point 135,25
 $Titel_Essentials.Location = New-Object Drawing.Point 50,215
@@ -314,6 +324,7 @@ $Titel_Software.Size = New-Object Drawing.Point 135,25
 $Titel_Software.Location = New-Object Drawing.Point 566,215
 $Titel_Software.text = "Software"
 $Titel_Software.ForeColor='#aaaaaa'
+
 $BOX_SystemPoint = New-Object System.Windows.Forms.CheckBox
 $BOX_SystemPoint.Size = New-Object Drawing.Point 135,25
 $BOX_SystemPoint.Location = New-Object Drawing.Point 27,248
@@ -401,51 +412,62 @@ $BOX_Remove_ASUS.Location = New-Object Drawing.Point 373,372
 $BOX_Remove_ASUS.Text = "Remove Asus Bloat"
 $BOX_Remove_ASUS.ForeColor='#aaaaaa'
 $BOX_Remove_ASUS.Checked = $false
+
+
+
+$BOX_GitHubDesktop = New-Object System.Windows.Forms.CheckBox
+$BOX_GitHubDesktop.Size = New-Object Drawing.Point 135,25
+$BOX_GitHubDesktop.Location = New-Object Drawing.Point 546,248
+$BOX_GitHubDesktop.Text = "GitHub-Desktop" 
+$BOX_GitHubDesktop.ForeColor='#aaaaaa'
+$BOX_GitHubDesktop.Checked = $false
 $BOX_Autoruns = New-Object System.Windows.Forms.CheckBox
 $BOX_Autoruns.Size = New-Object Drawing.Point 135,25
-$BOX_Autoruns.Location = New-Object Drawing.Point 546,248
+$BOX_Autoruns.Location = New-Object Drawing.Point 546,285
 $BOX_Autoruns.Text = "Autoruns" 
 $BOX_Autoruns.ForeColor='#aaaaaa'
 $BOX_Autoruns.Checked = $false
 $BOX_Winrar = New-Object System.Windows.Forms.CheckBox
 $BOX_Winrar.Size = New-Object Drawing.Point 135,25
-$BOX_Winrar.Location = New-Object Drawing.Point 546,279
+$BOX_Winrar.Location = New-Object Drawing.Point 546,322
 $BOX_Winrar.Text = "Winrar"
 $BOX_Winrar.ForeColor='#aaaaaa'
 $BOX_Winrar.Checked = $true
 $BOX_Fan_Control = New-Object System.Windows.Forms.CheckBox
 $BOX_Fan_Control.Size = New-Object Drawing.Point 135,25
-$BOX_Fan_Control.Location = New-Object Drawing.Point 546,310
+$BOX_Fan_Control.Location = New-Object Drawing.Point 546,359
 $BOX_Fan_Control.Text = "Fan Control"
 $BOX_Fan_Control.ForeColor='#aaaaaa'
 $BOX_Fan_Control.Checked = $false  
 $BOX_Google_Chrome = New-Object System.Windows.Forms.CheckBox
 $BOX_Google_Chrome.Size = New-Object Drawing.Point 135,25
-$BOX_Google_Chrome.Location = New-Object Drawing.Point 546,341
+$BOX_Google_Chrome.Location = New-Object Drawing.Point 546,396
 $BOX_Google_Chrome.Text = "Google Chrome"
 $BOX_Google_Chrome.ForeColor='#aaaaaa'
 $BOX_Google_Chrome.Checked = $false  
 $BOX_Controller = New-Object System.Windows.Forms.CheckBox
 $BOX_Controller.Size = New-Object Drawing.Point 135,25
-$BOX_Controller.Location = New-Object Drawing.Point 546,372
-$BOX_Controller.Text =  "Controller Support"
+$BOX_Controller.Location = New-Object Drawing.Point 546,433
+$BOX_Controller.Text =  "DS4-Windows"
 $BOX_Controller.ForeColor='#aaaaaa'
 $BOX_Controller.Checked = $false 
-$Titel_Compability = New-Object Windows.Forms.Label
+
+<#$Titel_Compability = New-Object Windows.Forms.Label
 $Titel_Compability.Size = New-Object Drawing.Point 300,25
 $Titel_Compability.Location = New-Object Drawing.Point 500,422
 $Titel_Compability.ForeColor='#e8272f'
+#>
 $BUTTON_Start = New-Object System.Windows.Forms.Button
 $BUTTON_Start.Text = "Start"
 $BUTTON_Start.Size = New-Object Drawing.Point 75,24
-$BUTTON_Start.Location = New-Object Drawing.Point 265,422
+$BUTTON_Start.Location = New-Object Drawing.Point 265,700
 $BUTTON_Start.ForeColor='#aaaaaa'
 $BUTTON_Start.add_Click($handler_button_Start_Click)
-IF(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")){
-$BUTTON_Start.Enabled = $false;$Titel_Compability.text = "PowerShell is not Administrator" }
+<# IF(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")){
+$BUTTON_Start.Enabled = $false;$Titel_Compability.text = "PowerShell is not Administrator" }  #>
 $BUTTON_Cancel = New-Object System.Windows.Forms.Button
 $BUTTON_Cancel.Size = New-Object Drawing.Point 75,24
-$BUTTON_Cancel.Location = New-Object Drawing.Point 360,422
+$BUTTON_Cancel.Location = New-Object Drawing.Point 360,700
 $BUTTON_Cancel.ForeColor='#aaaaaa'
 $BUTTON_Cancel.Text = "Cancel"
 $BUTTON_Cancel.add_click{$hash.Cancel = $true; $Form.Close()}
@@ -469,6 +491,7 @@ $form.Controls.Add($BOX_Scheduled_Maintance)
 $form.Controls.Add($BOX_Runtime)
 $form.Controls.Add($BOX_Driver_Cleaner)
 $form.Controls.Add($BOX_Remove_ASUS)
+$form.Controls.Add($BOX_GitHubDesktop)
 $form.Controls.Add($BOX_Autoruns)
 $form.Controls.Add($BOX_Winrar)
 $form.Controls.Add($BOX_Fan_Control)
@@ -491,6 +514,7 @@ IF($hash.WindowsTweaks_Features){WindowsTweaks_Features}
 IF($hash.WindowsTweaks_Index){WindowsTweaks_Index}
 IF($hash.Scheduled_Maintance){Scheduled_Maintance}
 IF($hash.Runtime){Runtime}   
+IF($hash.Autoruns){GitHubDesktop}   
 IF($hash.Autoruns){Autoruns}   
 IF($hash.Winrar){Winrar} 
 IF($hash.Fan_Control){Fan_Control}
@@ -499,6 +523,48 @@ IF($hash.Google_Chrome){Google_Chrome}
 IF($hash.Remove_ASUS){Remove_ASUS}
 IF($hash.Windows_Cleanup){Windows_Cleanup}
 IF($hash.Driver_Cleaner){Driver_Cleaner}}
+
+function Install-Choco {
+    # Check if Chocolatey is installed
+    if (-not (Test-Path 'C:\ProgramData\chocolatey\chocolatey.bat')) {
+        # Install Chocolatey
+        Set-ExecutionPolicy Bypass -Scope Process -Force
+        iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+        # Output a message to inform the user
+        Write-Host "Chocolatey installed successfully!"
+    } else {
+        Write-Host "Chocolatey is already installed."
+    }
+
+    # Set the execution policy again (just in case it was changed during Chocolatey installation)
+    Set-ExecutionPolicy Bypass -Scope Process -Force
+
+    # Enable allowGlobalConfirmation feature
+    choco feature enable -n allowGlobalConfirmation
+
+    
+}
+
+function Install-Winget {
+    # Check if winget is already installed
+    if (-not (Test-Path "$env:ProgramFiles\WindowsApps\Microsoft.DesktopAppInstaller_1.11.10391.0_x64__8wekyb3d8bbwe\appxmanifest.xml")) {
+        # Download and install the Desktop App Installer package, which includes winget
+        Start-Process "ms-windows-store://pdp/?productid=9nblggh4nns1" -Wait
+
+        # Output a message to inform the user
+        Write-Host "Windows Package Manager (winget) installed successfully!"
+    } else {
+        Write-Host "Windows Package Manager (winget) is already installed."
+    }
+}
+
+# Call the function to install winget
+Install-Winget
+
+# Call the function to install and configure Chocolatey
+Install-Choco
+
 
 GUI
 Choice
