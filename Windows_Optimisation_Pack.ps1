@@ -299,7 +299,7 @@ $Image = new-object Windows.Forms.PictureBox
 $img = [System.Drawing.Image]::Fromfile("$ScriptFolder\Picture.png")
 $Image.Width = $img.Size.Width
 $Image.Height = $img.Size.Height
-$Image.Location=New-Object System.Drawing.Point(68,20)
+$Image.Location=New-Object System.Drawing.Point(231,20)
 $Image.Image = $img
 
 
