@@ -1,6 +1,6 @@
 # Windows_Optimisation_Pack @Marvin700
 # windows-optimisation.de
-
+Add-Type -AssemblyName System.Windows.Forms
 $Branch = "main"
 $Version = "1.9.1"
 
@@ -246,6 +246,22 @@ function geforceexperience {
 function playnite {
     choco install playnite
 }
+
+function steam {
+    choco install steam    
+}
+
+function epicgameslauncher {
+    choco install epicgameslauncher
+}
+function Discord {
+    choco install discord
+}
+
+function advancedbattoexeconverter {
+    choco install advanced-bat-to-exe-converter
+}
+
 function git { choco install git
 }
 
@@ -311,8 +327,11 @@ $Image.Width = $img.Size.Width
 $Image.Height = $img.Size.Height
 $Image.Location=New-Object System.Drawing.Point(231,20)
 $Image.Image = $img
-
-
+# Create a vertical scrollbar
+$verticalScrollBar = New-Object System.Windows.Forms.VScrollBar
+$verticalScrollBar.Dock = "Right"  # Dock the scrollbar to the right side of the form
+$verticalScrollBar.Maximum = 100     # Set the maximum value
+$verticalScrollBar.LargeChange = 10  # Set the large change value
 #sub-Title
 $Titel_Essentials = New-Object Windows.Forms.Label
 $Titel_Essentials.Size = New-Object Drawing.Point 135,25
@@ -544,8 +563,10 @@ $form.Controls.Add($BOX_Controller)
 $form.Controls.Add($BOX_git)
 $form.Controls.Add($BOX_geforceexperience)
 $form.Controls.Add($BOX_playnite)
+$form.Controls.Add($BOX_Discord)
 $form.Controls.Add($BUTTON_Start)
 $form.Controls.Add($BUTTON_Cancel)
+$form.Controls.Add($verticalScrollBar)
 $form.ShowDialog() | Out-Null }
 
 function Choice{ 
