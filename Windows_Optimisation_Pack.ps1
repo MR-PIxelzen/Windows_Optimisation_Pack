@@ -242,6 +242,10 @@ function GitHubDesktop {choco install github-desktop -y
 function geforceexperience {
     choco install geforce-experience
 }
+
+function playnite {
+    choco install playnite
+}
 function git { choco install git
 }
 
@@ -419,55 +423,77 @@ $BOX_Remove_ASUS.Text = "Remove Asus Bloat"
 $BOX_Remove_ASUS.ForeColor='#aaaaaa'
 $BOX_Remove_ASUS.Checked = $false
 
-
+###############################Software###############
+# github-desktop
 $BOX_GitHubDesktop = New-Object System.Windows.Forms.CheckBox
 $BOX_GitHubDesktop.Size = New-Object Drawing.Point 135,25
 $BOX_GitHubDesktop.Location = New-Object Drawing.Point 820,248
 $BOX_GitHubDesktop.Text = "GitHub-Desktop" 
 $BOX_GitHubDesktop.ForeColor='#aaaaaa'
 $BOX_GitHubDesktop.Checked = $false
+# autorun
 $BOX_Autoruns = New-Object System.Windows.Forms.CheckBox
 $BOX_Autoruns.Size = New-Object Drawing.Point 135,25
 $BOX_Autoruns.Location = New-Object Drawing.Point 820,285
 $BOX_Autoruns.Text = "Autoruns" 
 $BOX_Autoruns.ForeColor='#aaaaaa'
 $BOX_Autoruns.Checked = $false
+# winrar 
 $BOX_Winrar = New-Object System.Windows.Forms.CheckBox
 $BOX_Winrar.Size = New-Object Drawing.Point 135,25
 $BOX_Winrar.Location = New-Object Drawing.Point 820,322
 $BOX_Winrar.Text = "Winrar"
 $BOX_Winrar.ForeColor='#aaaaaa'
 $BOX_Winrar.Checked = $true
+# Fan Control
 $BOX_Fan_Control = New-Object System.Windows.Forms.CheckBox
 $BOX_Fan_Control.Size = New-Object Drawing.Point 135,25
 $BOX_Fan_Control.Location = New-Object Drawing.Point 820,359
 $BOX_Fan_Control.Text = "Fan Control"
 $BOX_Fan_Control.ForeColor='#aaaaaa'
 $BOX_Fan_Control.Checked = $false  
+# Google Chrome
 $BOX_Google_Chrome = New-Object System.Windows.Forms.CheckBox
 $BOX_Google_Chrome.Size = New-Object Drawing.Point 135,25
 $BOX_Google_Chrome.Location = New-Object Drawing.Point 820,396
 $BOX_Google_Chrome.Text = "Google Chrome"
 $BOX_Google_Chrome.ForeColor='#aaaaaa'
 $BOX_Google_Chrome.Checked = $false  
+# DS4-Windows
 $BOX_Controller = New-Object System.Windows.Forms.CheckBox
 $BOX_Controller.Size = New-Object Drawing.Point 135,25
 $BOX_Controller.Location = New-Object Drawing.Point 820,433
 $BOX_Controller.Text =  "DS4-Windows"
 $BOX_Controller.ForeColor='#aaaaaa'
 $BOX_Controller.Checked = $false 
+# git cmd
 $BOX_git = New-Object System.Windows.Forms.CheckBox
 $BOX_git.Size = New-Object Drawing.Point 135,25
 $BOX_git.Location = New-Object Drawing.Point 820,470
 $BOX_git.Text =  "Git"
 $BOX_git.ForeColor='#aaaaaa'
 $BOX_git.Checked = $false 
+# Geforce-experience
 $BOX_geforceexperience = New-Object System.Windows.Forms.CheckBox
 $BOX_geforceexperience.Size = New-Object Drawing.Point 135,25
 $BOX_geforceexperience.Location = New-Object Drawing.Point 820,507
 $BOX_geforceexperience.Text =  "Geforce-experience"
 $BOX_geforceexperience.ForeColor='#aaaaaa'
 $BOX_geforceexperience.Checked = $false
+# playnite
+$BOX_playnite = New-Object System.Windows.Forms.CheckBox
+$BOX_playnite.Size = New-Object Drawing.Point 135,25
+$BOX_playnite.Location = New-Object Drawing.Point 820,544
+$BOX_playnite.Text =  "Playnite"
+$BOX_playnite.ForeColor='#aaaaaa'
+$BOX_playnite.Checked = $false
+# Discord
+$BOX_Discord = New-Object System.Windows.Forms.CheckBox
+$BOX_Discord.Size = New-Object Drawing.Point 135,25
+$BOX_Discord.Location = New-Object Drawing.Point 820,381
+$BOX_Discord.Text =  "Discord"
+$BOX_Discord.ForeColor='#aaaaaa'
+$BOX_Discord.Checked = $false
 
 
 <#$Titel_Compability = New-Object Windows.Forms.Label
@@ -517,6 +543,7 @@ $form.Controls.Add($BOX_Google_Chrome)
 $form.Controls.Add($BOX_Controller)
 $form.Controls.Add($BOX_git)
 $form.Controls.Add($BOX_geforceexperience)
+$form.Controls.Add($BOX_playnite)
 $form.Controls.Add($BUTTON_Start)
 $form.Controls.Add($BUTTON_Cancel)
 $form.ShowDialog() | Out-Null }
@@ -536,7 +563,8 @@ IF($hash.Scheduled_Maintance){Scheduled_Maintance}
 IF($hash.Runtime){Runtime}  
 IF($hash.Git){Git} 
 IF($hash.GitHubDesktop){GitHubDesktop}
-IF($hash.geforceexperience){geforceexperience}   
+IF($hash.geforceexperience){geforceexperience}
+IF($hash.playnite){playnite}   
 IF($hash.Autoruns){Autoruns}   
 IF($hash.Winrar){Winrar} 
 IF($hash.Fan_Control){Fan_Control}
