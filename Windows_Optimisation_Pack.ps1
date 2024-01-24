@@ -321,7 +321,7 @@ $Titel_Extras.text = "Extras"
 $Titel_Extras.ForeColor='#aaaaaa'
 $Titel_Software = New-Object Windows.Forms.Label
 $Titel_Software.Size = New-Object Drawing.Point 135,25
-$Titel_Software.Location = New-Object Drawing.Point 566,215
+$Titel_Software.Location = New-Object Drawing.Point 840,215
 $Titel_Software.text = "Software"
 $Titel_Software.ForeColor='#aaaaaa'
 
@@ -414,43 +414,48 @@ $BOX_Remove_ASUS.ForeColor='#aaaaaa'
 $BOX_Remove_ASUS.Checked = $false
 
 
-
 $BOX_GitHubDesktop = New-Object System.Windows.Forms.CheckBox
 $BOX_GitHubDesktop.Size = New-Object Drawing.Point 135,25
-$BOX_GitHubDesktop.Location = New-Object Drawing.Point 546,248
+$BOX_GitHubDesktop.Location = New-Object Drawing.Point 820,248
 $BOX_GitHubDesktop.Text = "GitHub-Desktop" 
 $BOX_GitHubDesktop.ForeColor='#aaaaaa'
 $BOX_GitHubDesktop.Checked = $false
 $BOX_Autoruns = New-Object System.Windows.Forms.CheckBox
 $BOX_Autoruns.Size = New-Object Drawing.Point 135,25
-$BOX_Autoruns.Location = New-Object Drawing.Point 546,285
+$BOX_Autoruns.Location = New-Object Drawing.Point 820,285
 $BOX_Autoruns.Text = "Autoruns" 
 $BOX_Autoruns.ForeColor='#aaaaaa'
 $BOX_Autoruns.Checked = $false
 $BOX_Winrar = New-Object System.Windows.Forms.CheckBox
 $BOX_Winrar.Size = New-Object Drawing.Point 135,25
-$BOX_Winrar.Location = New-Object Drawing.Point 546,322
+$BOX_Winrar.Location = New-Object Drawing.Point 820,322
 $BOX_Winrar.Text = "Winrar"
 $BOX_Winrar.ForeColor='#aaaaaa'
 $BOX_Winrar.Checked = $true
 $BOX_Fan_Control = New-Object System.Windows.Forms.CheckBox
 $BOX_Fan_Control.Size = New-Object Drawing.Point 135,25
-$BOX_Fan_Control.Location = New-Object Drawing.Point 546,359
+$BOX_Fan_Control.Location = New-Object Drawing.Point 820,359
 $BOX_Fan_Control.Text = "Fan Control"
 $BOX_Fan_Control.ForeColor='#aaaaaa'
 $BOX_Fan_Control.Checked = $false  
 $BOX_Google_Chrome = New-Object System.Windows.Forms.CheckBox
 $BOX_Google_Chrome.Size = New-Object Drawing.Point 135,25
-$BOX_Google_Chrome.Location = New-Object Drawing.Point 546,396
+$BOX_Google_Chrome.Location = New-Object Drawing.Point 820,396
 $BOX_Google_Chrome.Text = "Google Chrome"
 $BOX_Google_Chrome.ForeColor='#aaaaaa'
 $BOX_Google_Chrome.Checked = $false  
 $BOX_Controller = New-Object System.Windows.Forms.CheckBox
 $BOX_Controller.Size = New-Object Drawing.Point 135,25
-$BOX_Controller.Location = New-Object Drawing.Point 546,433
+$BOX_Controller.Location = New-Object Drawing.Point 820,433
 $BOX_Controller.Text =  "DS4-Windows"
 $BOX_Controller.ForeColor='#aaaaaa'
 $BOX_Controller.Checked = $false 
+$BOX_git = New-Object System.Windows.Forms.CheckBox
+$BOX_git.Size = New-Object Drawing.Point 135,25
+$BOX_git.Location = New-Object Drawing.Point 820,470
+$BOX_git.Text =  "Git"
+$BOX_git.ForeColor='#aaaaaa'
+$BOX_git.Checked = $false 
 
 <#$Titel_Compability = New-Object Windows.Forms.Label
 $Titel_Compability.Size = New-Object Drawing.Point 300,25
@@ -497,6 +502,7 @@ $form.Controls.Add($BOX_Winrar)
 $form.Controls.Add($BOX_Fan_Control)
 $form.Controls.Add($BOX_Google_Chrome)
 $form.Controls.Add($BOX_Controller)
+$form.Controls.Add($BOX_git)
 $form.Controls.Add($BUTTON_Start)
 $form.Controls.Add($BUTTON_Cancel)
 $form.ShowDialog() | Out-Null }
@@ -560,10 +566,10 @@ function Install-Winget {
 }
 
 # Call the function to install winget
-Install-Winget
+#Install-Winget
 
 # Call the function to install and configure Chocolatey
-Install-Choco
+#Install-Choco
 
 
 GUI
