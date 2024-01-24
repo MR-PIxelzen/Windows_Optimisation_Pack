@@ -190,8 +190,7 @@ Clear-Host
 " Downloading GPU Driver";" Please Wait ..."
 Start-BitsTransfer -Source "https://dlgbit.winfuture.de/RMwf2YRjJvno9C3TySNGyg/1691099075/3517/software/Radeon%20Crimson/whql-amd-software-adrenalin-edition-23.7.2-win10-win11-july25.exe" -Destination "$env:temp\GPU_Driver.exe"
 Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -Name "Driver_Installer" -Value "cmd.exe /c echo Stage 2/2 Driver is Installing. && echo Please Wait... && cd %tmp% && GPU_Driver.exe -install -boot"
-} else {Write-Warning "Automatic Installer works only for AMD";Start-Sleep 20}
-Clear-Host
+} else {choco install geforce-game-ready-driver}
 [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms");[System.Windows.Forms.MessageBox]::Show("For Driver Reinstallation restart the PC","Windows_Optimisation_Pack",0,[System.Windows.Forms.MessageBoxIcon]::Information) | Out-Null}}
 
 function Runtime{
@@ -527,6 +526,13 @@ $BOX_epicgamelauncher.Location = New-Object Drawing.Point 820,656
 $BOX_epicgamelauncher.Text =  "Epic-Games-launcher"
 $BOX_epicgamelauncher.ForeColor='#aaaaaa'
 $BOX_epicgamelauncher.Checked = $false
+# advanced-batto-execonverter
+$BOX_advancedbattoexeconverter = New-Object System.Windows.Forms.CheckBox
+$BOX_advancedbattoexeconverter.Size = New-Object Drawing.Point 135,25
+$BOX_advancedbattoexeconverter.Location = New-Object Drawing.Point 820,694
+$BOX_advancedbattoexeconverter.Text =  "Advanced BAT to EXE Converter"
+$BOX_advancedbattoexeconverter.ForeColor='#aaaaaa'
+$BOX_advancedbattoexeconverter.Checked = $false
 
 <#$Titel_Compability = New-Object Windows.Forms.Label
 $Titel_Compability.Size = New-Object Drawing.Point 300,25
@@ -579,6 +585,7 @@ $form.Controls.Add($BOX_playnite)
 $form.Controls.Add($BOX_Discord)
 $form.Controls.Add($BOX_steam)
 $form.Controls.Add($BOX_epicgamelauncher)
+$form.Controls.Add($BOX_advancedbattoexeconverter)
 $form.Controls.Add($BUTTON_Start)
 $form.Controls.Add($BUTTON_Cancel)
 $form.Controls.Add($verticalScrollBar)
