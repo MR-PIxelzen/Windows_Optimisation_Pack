@@ -257,6 +257,11 @@ function Discord {
     choco install discord
 }
 
+
+function autohotkey {
+    choco install autohotkey -y
+}
+
 function advancedbattoexeconverter {
     choco install advanced-bat-to-exe-converter
 }
@@ -533,6 +538,7 @@ $BOX_advancedbattoexeconverter.Location = New-Object Drawing.Point 820,694
 $BOX_advancedbattoexeconverter.Text =  "Advanced BAT to EXE Converter"
 $BOX_advancedbattoexeconverter.ForeColor='#aaaaaa'
 $BOX_advancedbattoexeconverter.Checked = $false
+#
 
 <#$Titel_Compability = New-Object Windows.Forms.Label
 $Titel_Compability.Size = New-Object Drawing.Point 300,25
@@ -607,7 +613,9 @@ IF($hash.Runtime){Runtime}
 IF($hash.Git){Git} 
 IF($hash.GitHubDesktop){GitHubDesktop}
 IF($hash.geforceexperience){geforceexperience}
-IF($hash.playnite){playnite}   
+IF($hash.playnite){playnite}
+IF($hash.steam){steam}
+IF($hash.epicgameslauncher){epicgameslauncher}  
 IF($hash.Autoruns){Autoruns}   
 IF($hash.Winrar){Winrar} 
 IF($hash.Fan_Control){Fan_Control}
