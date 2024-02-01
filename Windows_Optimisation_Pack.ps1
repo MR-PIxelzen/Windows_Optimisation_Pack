@@ -535,10 +535,16 @@ $BOX_epicgamelauncher.Checked = $false
 $BOX_advancedbattoexeconverter = New-Object System.Windows.Forms.CheckBox
 $BOX_advancedbattoexeconverter.Size = New-Object Drawing.Point 135,25
 $BOX_advancedbattoexeconverter.Location = New-Object Drawing.Point 820,694
-$BOX_advancedbattoexeconverter.Text =  "Advanced BAT to EXE Converter"
+$BOX_advancedbattoexeconverter.Text =  "Advanced BAT to EXE Converter"     
 $BOX_advancedbattoexeconverter.ForeColor='#aaaaaa'
 $BOX_advancedbattoexeconverter.Checked = $false
-#
+# rare gui
+$BOX_rare = New-Object System.Windows.Forms.CheckBox
+$BOX_rare.Size = New-Object Drawing.Point 135,25
+$BOX_rare.Location = New-Object Drawing.Point 820,731
+$BOX_rare.Text =  "rare gui"
+$BOX_rare.ForeColor='#aaaaaa'
+$BOX_rare.Checked = $false
 
 <#$Titel_Compability = New-Object Windows.Forms.Label
 $Titel_Compability.Size = New-Object Drawing.Point 300,25
@@ -592,6 +598,7 @@ $form.Controls.Add($BOX_Discord)
 $form.Controls.Add($BOX_steam)
 $form.Controls.Add($BOX_epicgamelauncher)
 $form.Controls.Add($BOX_advancedbattoexeconverter)
+$form.Controls.Add($BOX_rare)
 $form.Controls.Add($BUTTON_Start)
 $form.Controls.Add($BUTTON_Cancel)
 $form.Controls.Add($verticalScrollBar)
