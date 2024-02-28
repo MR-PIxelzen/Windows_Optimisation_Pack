@@ -1,6 +1,8 @@
 # Windows_Optimisation_Pack @Marvin700
 # windows-optimisation.de
+#Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Windows.Forms
+Add-Type -AssemblyName System.Drawing
 $Branch = "main"
 $Version = "1.9.1"
 
@@ -358,6 +360,7 @@ $Titel_Software.Location = New-Object Drawing.Point 840,215
 $Titel_Software.text = "Software"
 $Titel_Software.ForeColor='#aaaaaa'
 
+#Essentials
 $BOX_SystemPoint = New-Object System.Windows.Forms.CheckBox
 $BOX_SystemPoint.Size = New-Object Drawing.Point 135,25
 $BOX_SystemPoint.Location = New-Object Drawing.Point 27,248
