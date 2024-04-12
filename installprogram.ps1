@@ -17,6 +17,18 @@ powershell choco feature enable -n allowGlobalConfirmation
     Write-Host "Chocolatey is already installed."
 }
 
+# Allow powershell scripts from anywhere
+Set-ExecutionPolicy unrestricted -Force
+
+# Winget install
+$repoUrl = "https://api.github.com/repos/microsoft/winget-cli/releases/latest"
+$latestRelease = Invoke-WebRequest -Uri $repoUrl -UseBasicParsing | ConvertFrom-Json
+$downloadUrl = $latestRelease.assets | Where-Object { $_.name -eq "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle" } | Select-Object -ExpandProperty browser_download_url
+$downloadPath = "$env:TEMP\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
+Invoke-WebRequest -Uri $downloadUrl -OutFile $downloadPath
+Add-AppxPackage -Path $downloadPath
+
+
 #choco install visualstudio2022community
 
 # Install Microsoft Visual C++ Redistributable 2015 x64
