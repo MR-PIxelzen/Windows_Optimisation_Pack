@@ -7,6 +7,10 @@
     Version        : 0.0.21
 #>
 
+
+# Allow powershell scripts from anywhere
+Set-ExecutionPolicy unrestricted -Force
+
 if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
     Write-Host "Chocolatey is not installed."
     # Check if Chocolatey is installed, if not, install it
@@ -17,25 +21,24 @@ powershell choco feature enable -n allowGlobalConfirmation
     Write-Host "Chocolatey is already installed."
 }
 
-# Allow powershell scripts from anywhere
-Set-ExecutionPolicy unrestricted -Force
 
-# Winget install
-$repoUrl = "https://api.github.com/repos/microsoft/winget-cli/releases/latest"
-$latestRelease = Invoke-WebRequest -Uri $repoUrl -UseBasicParsing | ConvertFrom-Json
-$downloadUrl = $latestRelease.assets | Where-Object { $_.name -eq "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle" } | Select-Object -ExpandProperty browser_download_url
-$downloadPath = "$env:TEMP\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
-Invoke-WebRequest -Uri $downloadUrl -OutFile $downloadPath
-Add-AppxPackage -Path $downloadPath
+# Check if Winget is already installed
+if (-not (Get-Command "winget" -ErrorAction SilentlyContinue)) {
+    # If not installed, proceed with installation
+    $repoUrl = "https://api.github.com/repos/microsoft/winget-cli/releases/latest"
+    $latestRelease = Invoke-WebRequest -Uri $repoUrl -UseBasicParsing | ConvertFrom-Json
+    $downloadUrl = $latestRelease.assets | Where-Object { $_.name -eq "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle" } | Select-Object -ExpandProperty browser_download_url
+    $downloadPath = "$env:TEMP\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
+    Invoke-WebRequest -Uri $downloadUrl -OutFile $downloadPath
+    Add-AppxPackage -Path $downloadPath
+} else {
+    Write-Host "Winget is already installed."
+}
 
 
 #choco install visualstudio2022community
 
-# Install Microsoft Visual C++ Redistributable 2015 x64
-winget install --id Microsoft.VCRedist.2015.x64 -y -wait
-
-# Install Microsoft Visual C++ Redistributable 2015 x86
-winget install --id Microsoft.VCRedist.2015.x86 -y -wait
+#vcredist.exe /ai
 
 # Install other packages (replace with actual package names if available)
 # Thorium AVX
