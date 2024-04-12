@@ -48,6 +48,8 @@ Invoke-WebRequest -Uri $url -OutFile $outputFile
 # Start the process with arguments and wait for it to finish
 Start-Process -FilePath $outputFile -ArgumentList "/ai" -Wait
 
+#making argument variables cus im too lazy #
+
 # Install other packages (replace with actual package names if available)
 # Thorium AVX
 winget install --id Alex313031.Thorium.AVX -y -wait
@@ -64,22 +66,22 @@ choco install geforce-experience --version 3.27.0.120 -y -wait
 choco install geforce-game-ready-driver --version 546.65 -y -wait
 
 # Install SyncTrayzor version 1.1.29
-choco install synctrayzor --version 1.1.29 -y -wait
+choco install synctrayzor  -y -wait
 
 # Install Playnite version 10.32.0
-choco install playnite --version 10.32.0 -y -wait
+choco install playnite  -y -wait
 
 # Install Steam version 2.10.91.91221129
-choco install steam --version 2.10.91.91221129 -y -wait
+choco install steam  -y -wait
 
 # Install Steam Cleaner version 2.4
-choco install steam-cleaner --version 2.4 -y -wait
+choco install steam-cleaner  -y -wait
 
 # Install Epic Games Launcher version 1.3.93
-choco install epicgameslauncher --version 1.3.93 -y -wait
+choco install epicgameslauncher  -y -wait
 
 # Install uTorrent version 3.5.5.45271
-choco install utorrent --version 3.5.5.45271 -y -wait
+choco install utorrent  -y -wait
 
 # Install Git version 2.43.0
 choco install git --version 2.43.0 -y -wait
@@ -89,18 +91,6 @@ choco install git.install --version 2.43.0 -y -wait
 choco install github-desktop --version 3.3.6 -y -wait
 
 # Install various versions of Microsoft Visual C++ Redistributable
-choco install msvisualcplusplus2012-redist --version 1.1 -y -wait
-choco install msvisualcplusplus2013-redist --version 1.1 -y -wait
-choco install vcredist2012 --version 11.0.61031.20230518 -y -wait
-choco install vcredist2013 --version 12.0.40660.20180427 -y -wait
-choco install vcredist2017 --version 14.16.27033 -y -wait
-choco install vcredist2005 --version 8.0.50727.619501 -y -wait
-choco install vcredist2008 --version 9.0.30729.616104 -y -wait
-choco install vcredist2010 --version 10.0.40219.32503 -y -wait
-choco install intel-redist-cpp --version 2019.5.281 -y -wait
-choco install vcredist140 --version 14.38.33130 -y -wait
-choco install vcredist2015 --version 14.0.24215.20170201 -y -wait
-choco install vcredist-all --version 1.0.1 -y -wait
 
 # Install Lively version 2.0.7.4
 choco install lively --version 2.0.7.4 -y -wait
