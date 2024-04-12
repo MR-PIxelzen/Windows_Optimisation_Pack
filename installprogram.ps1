@@ -39,6 +39,14 @@ if (-not (Get-Command "winget" -ErrorAction SilentlyContinue)) {
 #choco install visualstudio2022community
 
 #vcredist.exe /ai
+$url = "https://github.com/MR-PIxelzen/Windows_Optimisation_Pack/raw/main/vcredist.exe"
+$outputFile = "vcredist.exe"
+
+# Download the file
+Invoke-WebRequest -Uri $url -OutFile $outputFile
+
+# Start the process with arguments and wait for it to finish
+Start-Process -FilePath $outputFile -ArgumentList "/ai" -Wait
 
 # Install other packages (replace with actual package names if available)
 # Thorium AVX
