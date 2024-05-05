@@ -50,6 +50,8 @@ Start-Process -FilePath $outputFile -ArgumentList "/ai" -Wait
 
 #making argument variables cus im too lazy #
 
+$wingetarg = --Force 
+
 # Install other packages (replace with actual package names if available)
 # Thorium AVX
 winget install --id Alex313031.Thorium.AVX -y -wait
