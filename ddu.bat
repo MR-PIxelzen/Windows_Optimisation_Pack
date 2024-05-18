@@ -36,6 +36,8 @@ if defined vendor (
     
 ) else (
     echo Unknown video controller: !placaF!
+     bcdedit /deletevalue {current} safeboot
+     bcdedit /deletevalue {current} safebootalternateshell
 )
 
 pause
