@@ -5,7 +5,7 @@ set c=curl -g -k -L -# -o
 
 cd /d "%~dp0"
 
-title VorteX display-drivers-uninstaller %ver%
+title Elite display-drivers-uninstaller %ver%
 
 
 REM Get video controller name
